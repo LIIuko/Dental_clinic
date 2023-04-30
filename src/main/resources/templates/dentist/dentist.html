@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dentists</title>
+</head>
+<body>
+    <h1>Добавить нового стоматолога</h1>
+    <form th:action="@{dentist/add}" method="post">
+        Фамилия: <input type="text" name="lastName"/><br><br>
+        Имя: <input type="text" name="firstName"/><br><br>
+        Отчество: <input type="text" name="middleName"/><br><br>
+        Услуги:
+        <select name="clinicServices" size="1" multiple>
+            <th:block th:each="service : ${services}">
+                <option th:value="${service.id}" th:text="${service.title}"></option>
+            </th:block>
+        </select><br><br>
+        <input type="submit" value="Добавить стоматолога"/>
+    </form>
+</body>
+</html>

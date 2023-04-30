@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dentists</title>
+</head>
+<body>
+    <h1>Список стоматологов</h1>
+    <ol>
+        <th:block th:each="clinicService : ${clinicServices}">
+            <li th:utext="${clinicService}"></li>
+        </th:block>
+    </ol>
+    <br>
+    <form action="/service/add" method="post">
+        Название: <input type="text" name="title"/><br><br>
+        Описание: <input type="text" name="description"/><br><br>
+        Стоимость: <input type="number" name="price"/><br><br>
+        <input type="submit" value="Добавить услугу"/>
+    </form>
+</body>
+</html>
